@@ -99,7 +99,7 @@ resource "aws_instance" "web" {
   subnet_id                   = aws_subnet.public.id
   vpc_security_group_ids      = [aws_security_group.web_sg.id]
   associate_public_ip_address = true
-  user_data                   = file("${path.module}/../scripts/setup-web.sh")
+  user_data                   = file("${path.root}/../scripts/setup-web.sh")
 
   tags = { Name = "${var.project_name}-web" }
 }
